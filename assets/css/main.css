@@ -1,0 +1,202 @@
+:root {
+    --primary: #800020;
+    --text-primary: #f8f8f8;
+    --text-secondary: rgba(248, 248, 248, 0.7);
+    --bg-primary: #111827;
+    --bg-secondary: #1f2937;
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --text-primary: #111827;
+        --text-secondary: rgba(17, 24, 39, 0.7);
+        --bg-primary: #f8f8f8;
+        --bg-secondary: #e5e7eb;
+        --border-color: rgba(17, 24, 39, 0.1);
+    }
+}
+
+/* Rest of your CSS styles here, copied from your original HTML */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+}
+
+header {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary);
+}
+
+.header-text {
+    flex: 1;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.tagline {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.projects {
+    margin-bottom: 3rem;
+}
+
+.project-list {
+    list-style: none;
+}
+
+.project-item {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: transform 0.2s ease;
+}
+
+.project-item:last-child {
+    border-bottom: none;
+}
+
+.project-item:hover {
+    transform: translateX(5px);
+}
+
+.project-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.project-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.project-description {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.project-arrow {
+    margin-left: auto;
+    opacity: 0;
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.project-item:hover .project-arrow {
+    opacity: 0.7;
+    transform: translateX(3px);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #600018;
+    transform: translateY(-2px);
+}
+
+.social-links {
+    margin-top: 3rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.2s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-2px);
+}
+
+.social-link svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--text-secondary);
+    transition: fill 0.2s ease;
+}
+
+.social-link:hover svg {
+    fill: var(--primary);
+}
+
+footer {
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+}

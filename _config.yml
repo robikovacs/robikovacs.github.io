@@ -1,0 +1,17 @@
+title: Robert Kovacs | Software Engineer | Ruby
+description: Ruby developer specialized in building elegant solutions
+baseurl: ""
+url: "https://robikovacs.com"
+gravatar_hash: ab2c447a2f90ca0a2c048a714fb721af
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - README.md
+saas:
+  enabled: false
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap

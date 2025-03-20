@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            {% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{
+            site.title }}{% endif %}
+        </title>
+
+        <!-- SEO Meta Tags -->
+        <meta
+            name="description"
+            content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}"
+        />
+        <meta
+            name="keywords"
+            content="Ruby, Rails, Web Development, Robert Kovacs, Ruby on Rails Developer, FirstPromoter.com, Room.com, Wolfpack-Digital.com"
+        />
+        <meta name="author" content="{{ site.author }}" />
+
+        <!-- Canonical URL -->
+        <link
+            rel="canonical"
+            href="{{ site.url }}{{ page.url | replace:'index.html','' }}"
+        />
+
+        <!-- Favicon -->
+        <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" />
+
+        {% seo title=false %}
+
+        <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    </head>
+    <body>
+        <div class="container">
+            {{ content }}
+
+            <footer>
+                <p id="copyright"></p>
+            </footer>
+        </div>
+
+        <script>
+            const startYear = 2014;
+            const currentYear = new Date().getFullYear();
+            const yearDisplay =
+                startYear === currentYear
+                    ? startYear
+                    : `${startYear} - ${currentYear}`;
+            document.getElementById("copyright").textContent =
+                `© ${yearDisplay} Robert Kovacs`;
+        </script>
+    </body>
+</html>
