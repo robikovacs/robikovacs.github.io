@@ -1,84 +1,73 @@
----
-layout: default
-title: Ruby Developer
-description: Ruby developer specialized in building elegant solutions for SaaS, e-commerce, and mobile applications.
----
+# Robert Kovacs - Ruby Developer Portfolio
 
-<header>
-    <img src="/assets/images/avatar.jpg" alt="Robert Kovacs" class="avatar">
-    <div class="header-text">
-        <h1>Robert Kovacs</h1>
-        <p class="tagline">Building elegant solutions with Ruby and Rails</p>
-    </div>
-</header>
+This repository contains my personal website showcasing my experience as a Ruby developer and the projects I've worked on.
 
-<div class="projects">
-    <ul class="project-list">
-        <li class="project-item">
-            <a href="https://firstpromoter.com" class="project-link" target="_blank">
-                <div>
-                    <div class="project-name">FirstPromoter.com</div>
-                    <div class="project-description">Affiliate and referral tracking for SaaS</div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-        </li>
+![Website Screenshot](assets/images/screenshot.png)
 
-        <li class="project-item">
-            <a href="https://room.co" class="project-link" target="_blank">
-                <div>
-                    <div class="project-name">Room Inc</div>
-                    <div class="project-description">Office analytics with IoT</div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-        </li>
+## 🔗 Live Site
 
-        <li class="project-item">
-            <a href="https://partbot.io" class="project-link" target="_blank">
-                <div>
-                    <div class="project-name">Partbot</div>
-                    <div class="project-description">Automotive product sales platform</div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-        </li>
+Visit the site: [robikovacs.github.io](https://robikovacs.github.io)
 
-        <li class="project-item">
-            <a href="https://net-a-porter.com" class="project-link" target="_blank">
-                <div>
-                    <div class="project-name">Net-a-Porter</div>
-                    <div class="project-description">Luxury fashion e-commerce</div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-        </li>
+## 💼 Featured Projects
 
-        <li class="project-item">
-            <a href="https://wolfpack-digital.com" class="project-link" target="_blank">
-                <div>
-                    <div class="project-name">Wolfpack-Digital</div>
-                    <div class="project-description">Mobile apps & SaaS products</div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-        </li>
-    </ul>
-</div>
+- **FirstPromoter.com**: Engineered affiliate platform tracking $30M+ monthly revenue across 7000+ programs
+- **Room Inc**: Engineered real-time IoT platform that transformed office space utilization
+- **Partbot**: Revolutionized automotive parts sales with AI-powered inventory management
+- **Net-a-Porter**: Architected micro frontend checkout system for luxury fashion giant
+- **Wolfpack-Digital**: Led development of innovative fintech and healthcare solutions
 
-<div class="cta">
-    <a href="https://cal.com/robikovacs" class="cta-button" target="_blank">Schedule a Meeting</a>
-</div>
+## 🛠️ Technical Details
 
-<div class="social-links">
-    <a href="https://github.com/robikovacs" class="social-link" target="_blank" aria-label="GitHub Profile">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-        </svg>
-    </a>
-    <a href="https://www.linkedin.com/in/rikovacs/" class="social-link" target="_blank" aria-label="LinkedIn Profile">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-        </svg>
-    </a>
-</div>
+This site is built with:
+
+- HTML5/CSS3
+- Vanilla JavaScript
+- Jekyll for GitHub Pages
+- Responsive design with dark/light mode support
+
+## 🚀 Development
+
+### Local Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/robikovacs/robikovacs.github.io.git
+cd robikovacs.github.io
+
+# Install dependencies (if using Jekyll)
+bundle install
+
+# Start local server (if using Jekyll)
+bundle exec jekyll serve
+```
+
+### Structure
+
+- `index.html` - Main content
+- `_layouts/default.html` - Main template
+- `assets/css/styles.css` - Styling
+- `_config.yml` - Jekyll configuration
+
+## 🌙 Features
+
+- **Responsive Design**: Mobile-friendly layout
+- **Dark/Light Mode**: Automatically adapts to user's system preferences
+- **Minimal Dependencies**: No external libraries or frameworks
+- **SEO Optimized**: Meta tags, structured data, and sitemap
+- **Fast Loading**: Lightweight implementation
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 📅 Timeline
+
+Portfolio active since 2014, showcasing Ruby development expertise.
+
+## 📞 Contact
+
+Schedule a meeting: [cal.com/robikovacs](https://cal.com/robikovacs)
+
+Connect with me:
+- [GitHub](https://github.com/robikovacs)
+- [LinkedIn](https://www.linkedin.com/in/rikovacs/)
