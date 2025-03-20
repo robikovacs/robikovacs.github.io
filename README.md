@@ -67,7 +67,3 @@ Portfolio active since 2014, showcasing Ruby development expertise.
 ## 📞 Contact
 
 Schedule a meeting: [cal.com/robikovacs](https://cal.com/robikovacs)
-
-Connect with me:
-- [GitHub](https://github.com/robikovacs)
-- [LinkedIn](https://www.linkedin.com/in/rikovacs/)
