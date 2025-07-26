@@ -6,7 +6,7 @@ This repository contains my personal website showcasing my experience as a Ruby 
 
 ## 🔗 Live Site
 
-Visit the site: [robikovacs.github.io](https://robikovacs.github.io)
+Visit the site: [robikovacs.com](https://robikovacs.com)
 
 ## 💼 Featured Projects
 
@@ -63,7 +63,3 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📅 Timeline
 
 Portfolio active since 2014, showcasing Ruby development expertise.
-
-## 📞 Contact
-
-Schedule a meeting: [cal.com/robikovacs](https://cal.com/robikovacs)
