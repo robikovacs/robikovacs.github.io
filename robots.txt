@@ -2,5 +2,21 @@
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Explicitly allow AI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# Sitemap and LLM context
 Sitemap: https://robikovacs.com/sitemap.xml

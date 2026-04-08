@@ -1,0 +1,26 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+description: Thoughts on Ruby, Rails, and scaling SaaS applications.
+---
+
+<div class="blog-listing">
+    <a href="/" class="back-link">&larr; Home</a>
+    <h1>Blog</h1>
+    <p class="tagline">Thoughts on Ruby, Rails, and scaling SaaS applications.</p>
+</div>
+
+<div class="post-list">
+    {% for post in site.posts %}
+    <article class="post-preview">
+        <a href="{{ post.url }}" class="post-preview-link">
+            <div>
+                <h2 class="post-preview-title">{{ post.title }}</h2>
+                <p class="post-preview-description">{{ post.description }}</p>
+            </div>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+        </a>
+    </article>
+    {% endfor %}
+</div>

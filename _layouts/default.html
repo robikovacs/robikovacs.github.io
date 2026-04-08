@@ -15,9 +15,9 @@
         />
         <meta
             name="keywords"
-            content="Ruby, Rails, Web Development, Robert Kovacs, Ruby on Rails Developer, FirstPromoter.com, Room.com, Wolfpack-Digital.com"
+            content="Ruby on Rails, Software Engineer, Robert Kovacs, FirstPromoter, SaaS, Rails Performance, Lisbon Portugal"
         />
-        <meta name="author" content="{{ site.author }}" />
+        <meta name="author" content="{{ site.author.name | default: site.author }}" />
 
         <!-- Canonical URL -->
         <link
@@ -28,18 +28,21 @@
         <!-- Favicon -->
         <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" />
 
+        <!-- AI / LLM discoverability -->
+        <link rel="help" type="text/plain" href="{{ '/llms.txt' | absolute_url }}" />
+
         {% seo title=false %}
 
         <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
     </head>
     <body>
-        <div class="container">
+        <main class="container" role="main">
             {{ content }}
 
             <footer>
                 <p id="copyright"></p>
             </footer>
-        </div>
+        </main>
 
         <script>
             const startYear = 2014;

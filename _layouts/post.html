@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <a href="/blog/" class="back-link">&larr; Back to blog</a>
+
+    <header class="post-header">
+        <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
+        <div class="post-meta">
+            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+                {{ page.date | date: "%B %-d, %Y" }}
+            </time>
+        </div>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+        {{ content }}
+    </div>
+
+    {% assign sorted_posts = site.posts | sort: "date" %}
+    {% assign current_index = nil %}
+    {% for p in sorted_posts %}
+        {% if p.url == page.url %}
+            {% assign current_index = forloop.index0 %}
+        {% endif %}
+    {% endfor %}
+
+    {% assign next_index = current_index | plus: 1 %}
+    {% assign next_post = sorted_posts[next_index] %}
+
+    {% if next_post %}
+    <div class="post-next">
+        <span class="post-next-label">Next post</span>
+        <a href="{{ next_post.url }}" class="post-next-link">{{ next_post.title }} &rarr;</a>
+    </div>
+    {% endif %}
+</article>

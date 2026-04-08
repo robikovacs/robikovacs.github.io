@@ -1,106 +1,48 @@
 ---
 layout: default
-title: Ruby Developer
-description: Ruby developer specialized in building elegant solutions for SaaS, e-commerce, and mobile applications.
+title: CTO at FirstPromoter
+description: CTO at FirstPromoter. Ruby on Rails, performance, and scaling. Based in Lisbon, Portugal.
 ---
 
-<header>
+<article>
+<header itemscope itemtype="http://schema.org/Person">
     <img
         src="https://www.gravatar.com/avatar/{{ site.gravatar_hash }}?s=250&d=mp"
-        alt="Robert Kovacs"
+        alt="Robert Kovacs — CTO at FirstPromoter"
         class="avatar"
+        itemprop="image"
     />
 
     <div class="header-text">
-        <h1>Robert Kovacs</h1>
-        <p class="tagline">Building elegant solutions with Ruby and Rails</p>
+        <h1 itemprop="name">Robert Kovacs</h1>
+        <p class="tagline" itemprop="jobTitle">CTO at <a href="https://firstpromoter.com/?fpr=robert" class="inline-link" itemprop="worksFor">FirstPromoter</a></p>
     </div>
+    <meta itemprop="url" content="https://robikovacs.com" />
+    <meta itemprop="sameAs" content="https://github.com/robikovacs" />
+    <meta itemprop="sameAs" content="https://www.linkedin.com/in/rikovacs/" />
 </header>
 
-<div class="projects">
+<p class="bio">I work on <a href="https://firstpromoter.com/?fpr=robert" class="inline-link">FirstPromoter</a>, an affiliate tracking platform powering 7,000+ affiliate programs. I write about Ruby on Rails, performance, and things I've learned along the way.</p>
+
+{% if site.posts.size > 0 %}
+<div class="blog-section">
+    <h2 class="section-title">Blog</h2>
     <ul class="project-list">
+        {% for post in site.posts limit:3 %}
         <li class="project-item">
-            <a
-                href="https://firstpromoter.com"
-                class="project-link"
-                target="_blank"
-            >
+            <a href="{{ post.url }}" class="project-link">
                 <div>
-                    <div class="project-name">First Promoter</div>
-                    <div class="project-description">
-                        Engineered affiliate platform tracking $30M+ monthly
-                        revenue across 7000+ programs
-                    </div>
+                    <div class="project-name">{{ post.title }}</div>
+                    <div class="project-description">{{ post.date | date: "%B %-d, %Y" }}</div>
                 </div>
-                <span class="project-arrow">→</span>
+                <span class="project-arrow">&rarr;</span>
             </a>
         </li>
-
-        <li class="project-item">
-            <a href="https://room.com" class="project-link" target="_blank">
-                <div>
-                    <div class="project-name">ROOM Inc.</div>
-                    <div class="project-description">
-                        Engineered real-time IoT platform that transformed
-                        office space utilization
-                    </div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-        </li>
-
-        <li class="project-item">
-            <a
-                href="https://use.partbot.io"
-                class="project-link"
-                target="_blank"
-            >
-                <div>
-                    <div class="project-name">Partbot</div>
-                    <div class="project-description">
-                        Revolutionized automotive parts sales with custom
-                        e-commerce integrations
-                    </div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-        </li>
-
-        <li class="project-item">
-            <a
-                href="https://net-a-porter.com"
-                class="project-link"
-                target="_blank"
-            >
-                <div>
-                    <div class="project-name">Net-a-Porter</div>
-                    <div class="project-description">
-                        Architected micro frontend checkout system for luxury
-                        fashion giant
-                    </div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-        </li>
-
-        <li class="project-item">
-            <a
-                href="https://wolfpack-digital.com"
-                class="project-link"
-                target="_blank"
-            >
-                <div>
-                    <div class="project-name">Wolfpack-Digital</div>
-                    <div class="project-description">
-                        Led development of innovative transportation, fintech
-                        and healthcare solutions
-                    </div>
-                </div>
-                <span class="project-arrow">→</span>
-            </a>
-        </li>
+        {% endfor %}
     </ul>
+    <a href="/blog/" class="all-posts-link">All posts &rarr;</a>
 </div>
+{% endif %}
 
 <div class="social-links">
     <a
@@ -136,3 +78,14 @@ description: Ruby developer specialized in building elegant solutions for SaaS, 
         </svg>
     </a>
 </div>
+
+<div class="work-history">
+    <h2 class="section-title-small">Previously</h2>
+    <p class="work-list">
+        <a href="https://room.com" target="_blank">ROOM</a> &middot;
+        <a href="https://net-a-porter.com" target="_blank">Net-a-Porter</a> &middot;
+        <a href="https://use.partbot.io" target="_blank">Partbot</a> &middot;
+        <a href="https://wolfpack-digital.com" target="_blank">Wolfpack Digital</a>
+    </p>
+</div>
+</article>
