@@ -367,10 +367,10 @@ h1 {
 .post-content pre {
     margin-bottom: 1.5rem;
     padding: 1.25rem;
-    background-color: var(--bg-secondary);
+    background-color: #1e293b;
     border-radius: 6px;
     overflow-x: auto;
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .post-content pre code {
@@ -378,7 +378,7 @@ h1 {
     padding: 0;
     font-size: 0.85rem;
     line-height: 1.6;
-    color: var(--text-primary);
+    color: #f1f5f9;
 }
 
 .post-content blockquote {
