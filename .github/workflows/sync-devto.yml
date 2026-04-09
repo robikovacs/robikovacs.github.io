@@ -39,8 +39,8 @@ jobs:
             body=$(echo "$body" | sed 's|(/assets/|(https://robikovacs.com/assets/|g')
             body=$(echo "$body" | sed 's|src="/assets/|src="https://robikovacs.com/assets/|g')
 
-            # Take first 4 keywords as tags (dev.to limit)
-            tags=$(echo "$keywords" | tr ',' '\n' | head -4 | sed 's/^ *//;s/ *$//' | tr ' ' '-' | tr '\n' ',' | sed 's/,$//')
+            # Take first 4 keywords as tags (dev.to: lowercase, no hyphens/spaces)
+            tags=$(echo "$keywords" | tr ',' '\n' | head -4 | sed 's/^ *//;s/ *$//;s/[- ]//g' | tr '[:upper:]' '[:lower:]' | tr '\n' ',' | sed 's/,$//')
 
             # Check if article exists on dev.to
             existing=$(curl -s -H "api-key: ${DEVTO_API_KEY}" \
