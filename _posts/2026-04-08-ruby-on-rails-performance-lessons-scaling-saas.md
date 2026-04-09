@@ -9,6 +9,7 @@ keywords: "ruby on rails performance, rails optimization, scaling rails, saas pe
 When your Rails app grows from a handful of users to millions of referrals across thousands of programs, performance becomes the whole job. I work on [FirstPromoter](https://firstpromoter.com/?fpr=robert), an affiliate tracking platform powering 7,000+ affiliate programs. Over the years we've had to figure out how to keep things fast as the traffic kept growing.
 
 ![FirstPromoter company dashboard](/assets/images/firstpromoter-performance--company-dashboard.webp)
+*The FirstPromoter dashboard — the page that used to time out*
 
 Here's what a typical week looks like in production:
 
@@ -28,6 +29,7 @@ Here are seven lessons we learned the hard way.
 Our dashboard showed counts everywhere — active promoters per campaign, pending referrals, total commissions. Each one a `COUNT(*)` query hitting PostgreSQL in real time.
 
 ![FirstPromoter promoter dashboard](/assets/images/firstpromoter-performance--promoter-dashboard.webp)
+*Promoter detail view — counts everywhere, each one a potential COUNT query*
 
 Rails' built-in `counter_cache` got us started, but we graduated to [counter_culture](https://github.com/magnusvk/counter_culture) for conditional counts and multi-level caching.
 
@@ -99,15 +101,15 @@ Our dashboard analytics — trending charts, revenue breakdowns, time-series com
 
 We migrated the analytics layer to [Google BigQuery](https://cloud.google.com/bigquery). Same queries that timed out in PostgreSQL now run in under 2 seconds. But **not everything belongs in BigQuery** — we initially moved too aggressively and actually reverted some queries back when the added complexity wasn't justified. Our rule of thumb: if a query scans hundreds of thousands of rows or involves complex time-series aggregations, BigQuery. Everything else stays in PostgreSQL.
 
-Here's where things stand now after the migration:
+Here's where things stand now — 95th percentile response times over the last 30 days:
 
-| Namespace | P95 (30 days) |
+| Namespace | P95 |
 |---|---|
 | Webhooks | **85ms** |
 | Background | **1,969ms** |
 | API | **3,426ms** |
 
-95% of API requests complete under **3.4s** — these are the heavy analytics queries that used to time out at 30s.
+95% of API requests complete under 3.4s. These are the same analytics queries that used to time out at 30s.
 
 ## 6. Database Views for Complex Reports
 
