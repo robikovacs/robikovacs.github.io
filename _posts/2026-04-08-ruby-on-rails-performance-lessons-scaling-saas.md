@@ -75,15 +75,15 @@ We run [Bullet](https://github.com/flyerhzm/bullet) and [Prosopite](https://gith
 
 ## 3. Redis for the Hot Path
 
-When you're processing 1.47M webhooks per day, every millisecond in your hot path counts. We use Redis for three things:
+When you're processing 1.47M webhooks per day, every millisecond in your hot path counts. We use Redis for four things:
+
+**Webhook queue.** We don't process webhooks inline. Validate the payload, enqueue a Sidekiq worker, return 200. The actual business logic happens in the background. That's how we handle 10M+ webhooks per week — the response time is just validation and enqueue.
 
 **Atomic counters.** Email send counts, tracking events — anything high-frequency that would cause database contention. We increment in Redis and flush to PostgreSQL periodically.
 
 **Revenue caching.** Dashboard revenue calculations that join multiple tables get cached in Redis with Sidekiq workers refreshing on a schedule. The dashboard loads instantly while data stays reasonably fresh.
 
 **Rails cache store.** Query and fragment caching backed by Redis with connection pooling — essential to prevent connection exhaustion under load.
-
-This is a big part of why our webhook processing went from **129ms** last year to just **23ms** today — a 5.6x improvement. Redis handles the hot-path reads while PostgreSQL stays free for transactional work.
 
 ## 4. Sidekiq: Tune It Like an Engine
 
