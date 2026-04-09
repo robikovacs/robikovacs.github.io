@@ -57,7 +57,15 @@ Company.active.find_each do |company|
 end
 ```
 
-We also moved reconciliation to an async worker — an hourly pass catches drift without constant database pressure. Our web dashboard went from **111ms** mean response time last year to **69ms** today — a 38% improvement just from smarter counter caching.
+We also moved reconciliation to an async worker that reads from a replica database — so the hourly counter refresh doesn't touch the primary at all:
+
+```ruby
+CounterCulture.configure do |config|
+  config.use_read_replica = Rails.env.production?
+end
+```
+
+Our web dashboard went from **111ms** mean response time last year to **69ms** today — a 38% improvement just from smarter counter caching.
 
 ## 2. N+1 Queries: Preloading Too Much Is as Bad as Too Little
 
