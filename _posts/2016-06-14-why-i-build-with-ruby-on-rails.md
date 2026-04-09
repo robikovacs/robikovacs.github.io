@@ -8,6 +8,8 @@ keywords: "ruby on rails, rails framework, ruby developer, web development 2016,
 
 Just started at [Wolfpack Digital](https://wolfpack-digital.com) as a Ruby developer. First real job. Figured I'd write down why Rails while it's still fresh.
 
+![Dev stickers](/assets/images/why-rails--dev-stickers.webp)
+
 Quick clarification because this trips people up: Ruby is the language, Rails is the framework on top of it. Handles routing, database stuff, the whole request lifecycle — so you skip the boilerplate and get to the actual product.
 
 Two things hooked me. Convention over configuration — Rails decides where files go, how URLs work, how models connect to the database. You can override it all, but the defaults are good. And the gem ecosystem. Need auth? Devise. File uploads? CarrierWave. Admin panel? Rails Admin. Almost never starting from zero.
