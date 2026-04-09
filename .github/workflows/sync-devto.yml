@@ -18,6 +18,10 @@ jobs:
         env:
           DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
         run: |
+          # Fetch all existing articles once
+          articles=$(curl -s -H "api-key: ${DEVTO_API_KEY}" \
+            "https://dev.to/api/articles/me/all?per_page=100")
+
           for post in _posts/*.md; do
             # Parse front matter
             title=$(sed -n 's/^title: *"\(.*\)"/\1/p' "$post" | head -1)
@@ -46,27 +50,38 @@ jobs:
             tags=$(echo "$keywords" | tr ',' '\n' | head -4 | sed 's/^ *//;s/ *$//;s/[- ]//g' | tr '[:upper:]' '[:lower:]' | tr '\n' ',' | sed 's/,$//')
 
             # Check if article exists on dev.to
-            existing=$(curl -s -H "api-key: ${DEVTO_API_KEY}" \
-              "https://dev.to/api/articles/me/all?per_page=100" | \
-              jq -r ".[] | select(.canonical_url == \"${canonical}\") | .id")
+            existing=$(echo "$articles" | jq -r ".[] | select(.canonical_url == \"${canonical}\") | .id")
 
-            # Build JSON payload
-            payload=$(jq -n \
-              --arg title "$title" \
-              --arg body "$body" \
-              --arg canonical "$canonical" \
-              --arg description "$description" \
-              --arg tags "$tags" \
-              '{article: {title: $title, body_markdown: $body, canonical_url: $canonical, description: $description, tags: ($tags | split(",")), published: true}}')
-
+            # Skip update if content hasn't changed
             if [ -n "$existing" ]; then
+              local_hash=$(echo "$body" | md5sum | cut -d' ' -f1)
+              remote_body=$(echo "$articles" | jq -r ".[] | select(.id == ${existing}) | .body_markdown")
+              remote_hash=$(echo "$remote_body" | md5sum | cut -d' ' -f1)
+              if [ "$local_hash" = "$remote_hash" ]; then
+                echo "Skipping (unchanged): $title"
+                continue
+              fi
               echo "Updating: $title (id: $existing)"
+              payload=$(jq -n \
+                --arg title "$title" \
+                --arg body "$body" \
+                --arg canonical "$canonical" \
+                --arg description "$description" \
+                --arg tags "$tags" \
+                '{article: {title: $title, body_markdown: $body, canonical_url: $canonical, description: $description, tags: ($tags | split(",")), published: true}}')
               curl -s -X PUT "https://dev.to/api/articles/${existing}" \
                 -H "Content-Type: application/json" \
                 -H "api-key: ${DEVTO_API_KEY}" \
                 -d "$payload" | jq -r '.url // .error'
             else
               echo "Creating: $title"
+              payload=$(jq -n \
+                --arg title "$title" \
+                --arg body "$body" \
+                --arg canonical "$canonical" \
+                --arg description "$description" \
+                --arg tags "$tags" \
+                '{article: {title: $title, body_markdown: $body, canonical_url: $canonical, description: $description, tags: ($tags | split(",")), published: true}}')
               curl -s -X POST "https://dev.to/api/articles" \
                 -H "Content-Type: application/json" \
                 -H "api-key: ${DEVTO_API_KEY}" \
