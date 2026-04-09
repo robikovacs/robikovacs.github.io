@@ -43,8 +43,8 @@ jobs:
             body=$(echo "$body" | sed 's|(/assets/|(https://robikovacs.com/assets/|g')
             body=$(echo "$body" | sed 's|src="/assets/|src="https://robikovacs.com/assets/|g')
 
-            # Strip all HTML tags — dev.to only renders markdown
-            body=$(echo "$body" | sed '/<[a-zA-Z]/,/<\/[a-zA-Z]*>/d')
+            # Strip all HTML — dev.to only renders markdown
+            body=$(echo "$body" | grep -v '^ *<')
 
             # Take first 4 keywords as tags (dev.to: lowercase, no hyphens/spaces)
             tags=$(echo "$keywords" | tr ',' '\n' | head -4 | sed 's/^ *//;s/ *$//;s/[- ]//g' | tr '[:upper:]' '[:lower:]' | tr '\n' ',' | sed 's/,$//')
