@@ -65,7 +65,7 @@ CounterCulture.configure do |config|
 end
 ```
 
-Our web dashboard went from **111ms** mean response time last year to **90ms** today.
+Our dashboard stats endpoint went from **10s+** to **2.5s**, and the promoter listings that used to choke on COUNT queries now load in under **500ms**.
 
 ## 2. N+1 Queries: Preloading Too Much Is as Bad as Too Little
 
