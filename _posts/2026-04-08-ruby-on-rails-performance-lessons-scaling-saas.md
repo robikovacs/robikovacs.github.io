@@ -8,6 +8,8 @@ keywords: "ruby on rails performance, rails optimization, scaling rails, saas pe
 
 When your Rails app grows from a handful of users to millions of referrals across thousands of programs, performance becomes the whole job. I work on [FirstPromoter](https://firstpromoter.com/?fpr=robert), an affiliate tracking platform powering 7,000+ affiliate programs. Over the years we've had to figure out how to keep things fast as the traffic kept growing.
 
+![FirstPromoter company dashboard](/assets/images/firstpromoter-performance--company-dashboard.webp)
+
 Here's what a typical week looks like in production:
 
 <div class="metric-cards">
@@ -36,6 +38,8 @@ Here are seven lessons we learned the hard way.
 ## 1. Counter Caching Saves More Than You Think
 
 Our dashboard showed counts everywhere — active promoters per campaign, pending referrals, total commissions. Each one a `COUNT(*)` query hitting PostgreSQL in real time.
+
+![FirstPromoter promoter dashboard](/assets/images/firstpromoter-performance--promoter-dashboard.webp)
 
 Rails' built-in `counter_cache` got us started, but we graduated to [counter_culture](https://github.com/magnusvk/counter_culture) for conditional counts and multi-level caching.
 

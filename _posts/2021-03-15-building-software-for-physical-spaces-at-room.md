@@ -18,7 +18,7 @@ This changes how you think about error handling. HTTP timeouts mean something di
 
 The interesting edge case: what happens when someone is inside and their card declines? You can't lock someone inside a room because their card declined. The physical world doesn't care about your payment flow.
 
-![ROOM booking app — find a Focus Room on the map, reserve it, scan to start](/assets/images/pro-rod_cs1.webp)
+![ROOM booking app — find a Focus Room on the map, reserve it, scan to start](/assets/images/room--booking-app.webp)
 
 ## The data pipeline nobody warned me about
 
@@ -28,7 +28,7 @@ Sounds simple: device sends event, Pub/Sub queues it, BigQuery stores it, Rails 
 
 The portal shows office managers how their spaces are actually used. Turns out most companies have no idea. The data is usually surprising — the big meeting room that seats 12 gets used by 2 people for calls, and the phone booths are at 90% utilization.
 
-![The Sense analytics dashboard — utilization data from IoT sensors across office spaces](/assets/images/pro-sense_cs1.webp)
+![The Sense analytics dashboard — utilization data from IoT sensors across office spaces](/assets/images/room--sense-dashboard.webp)
 
 ## Two stacks, same door
 
