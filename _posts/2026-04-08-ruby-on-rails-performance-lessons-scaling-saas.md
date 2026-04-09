@@ -12,24 +12,12 @@ When your Rails app grows from a handful of users to millions of referrals acros
 
 Here's what a typical week looks like in production:
 
-<div class="metric-cards">
-    <div class="metric-card">
-        <div class="metric-value">35.5M</div>
-        <div class="metric-label">Requests / week</div>
-    </div>
-    <div class="metric-card">
-        <div class="metric-value">10.3M</div>
-        <div class="metric-label">Payment webhooks / week</div>
-    </div>
-    <div class="metric-card">
-        <div class="metric-value">23ms</div>
-        <div class="metric-label">Avg webhook response</div>
-    </div>
-    <div class="metric-card">
-        <div class="metric-value">318K</div>
-        <div class="metric-label">Peak requests / hour</div>
-    </div>
-</div>
+| Metric | Value |
+|---|---|
+| Requests / week | **35.5M** |
+| Payment webhooks / week | **10.3M** |
+| Avg webhook response | **23ms** |
+| Peak requests / hour | **318K** |
 
 That's more than double the throughput from last year (15.7M → 35.5M) — while simultaneously making things faster. We process payment webhooks from Stripe, Chargebee, Braintree, and Paddle — about 1.47 million per day. Each one needs to be fast and reliable because it directly affects revenue attribution for our customers.
 
@@ -113,30 +101,11 @@ We migrated the analytics layer to [Google BigQuery](https://cloud.google.com/bi
 
 Here's where things stand now after the migration:
 
-<div class="chart-container">
-    <div class="chart-title">P95 Response Time (30 days)</div>
-    <div class="chart-row">
-        <span class="chart-row-label">Webhooks</span>
-        <div class="chart-bar-track">
-            <div class="chart-bar-fill" style="width: 2.5%"></div>
-        </div>
-        <span class="chart-row-value">85ms</span>
-    </div>
-    <div class="chart-row">
-        <span class="chart-row-label">Background</span>
-        <div class="chart-bar-track">
-            <div class="chart-bar-fill" style="width: 57%"></div>
-        </div>
-        <span class="chart-row-value">1,969ms</span>
-    </div>
-    <div class="chart-row">
-        <span class="chart-row-label">API</span>
-        <div class="chart-bar-track">
-            <div class="chart-bar-fill" style="width: 100%"></div>
-        </div>
-        <span class="chart-row-value">3,426ms</span>
-    </div>
-</div>
+| Namespace | P95 (30 days) |
+|---|---|
+| Webhooks | **85ms** |
+| Background | **1,969ms** |
+| API | **3,426ms** |
 
 95% of API requests complete under **3.4s** — these are the heavy analytics queries that used to time out at 30s.
 
@@ -152,44 +121,13 @@ When exporting large datasets, batch size dramatically affects both memory and s
 
 Payment webhooks dominate our traffic. Here's the breakdown by provider:
 
-<div class="chart-container">
-    <div class="chart-title">Weekly Webhook Volume by Provider</div>
-    <div class="chart-row">
-        <span class="chart-row-label">Stripe</span>
-        <div class="chart-bar-track">
-            <div class="chart-bar-fill chart-bar-accent" style="width: 100%"></div>
-        </div>
-        <span class="chart-row-value">5.8M</span>
-    </div>
-    <div class="chart-row">
-        <span class="chart-row-label">Chargebee</span>
-        <div class="chart-bar-track">
-            <div class="chart-bar-fill" style="width: 64%"></div>
-        </div>
-        <span class="chart-row-value">3.7M</span>
-    </div>
-    <div class="chart-row">
-        <span class="chart-row-label">Braintree</span>
-        <div class="chart-bar-track">
-            <div class="chart-bar-fill" style="width: 5%"></div>
-        </div>
-        <span class="chart-row-value">287K</span>
-    </div>
-    <div class="chart-row">
-        <span class="chart-row-label">Paddle</span>
-        <div class="chart-bar-track">
-            <div class="chart-bar-fill" style="width: 2%"></div>
-        </div>
-        <span class="chart-row-value">113K</span>
-    </div>
-    <div class="chart-row">
-        <span class="chart-row-label">Recurly</span>
-        <div class="chart-bar-track">
-            <div class="chart-bar-fill" style="width: 0.6%"></div>
-        </div>
-        <span class="chart-row-value">36K</span>
-    </div>
-</div>
+| Provider | Weekly Volume |
+|---|---|
+| Stripe | **5.8M** |
+| Chargebee | **3.7M** |
+| Braintree | **287K** |
+| Paddle | **113K** |
+| Recurly | **36K** |
 
 Each integration has its own payload format, retry behavior, and edge cases. We keep an eye on all of it through [AppSignal](https://www.appsignal.com/) for performance monitoring, [Better Stack](https://betterstack.com/) for logs, [Bullet](https://github.com/flyerhzm/bullet)/[Prosopite](https://github.com/charkost/prosopite) for N+1 detection, and [strong_migrations](https://github.com/ankane/strong_migrations) to keep deploys safe.
 

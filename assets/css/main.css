@@ -388,6 +388,37 @@ h1 {
     margin: 1.5rem 0;
 }
 
+.post-content table {
+    width: 100%;
+    margin: 1.5rem 0;
+    border-collapse: collapse;
+    background: var(--bg-secondary);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+.post-content thead {
+    display: none;
+}
+
+.post-content td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.post-content tr:last-child td {
+    border-bottom: none;
+}
+
+.post-content td:last-child {
+    text-align: right;
+    white-space: nowrap;
+    color: var(--text-primary);
+}
+
 .post-content blockquote {
     margin: 1.5rem 0;
     padding: 0.75rem 1.25rem;
