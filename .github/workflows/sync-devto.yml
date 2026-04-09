@@ -70,5 +70,5 @@ jobs:
                 -d "$payload" | jq -r '.url // .error'
             fi
 
-            sleep 2
+            sleep 35
           done
