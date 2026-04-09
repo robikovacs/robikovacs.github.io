@@ -101,12 +101,14 @@ With over 100K scheduled jobs in queue at any given time, Sidekiq tuning isn't o
 
 ## 5. Know When PostgreSQL Isn't Enough
 
-This was humbling. Our dashboard analytics — trending charts, revenue breakdowns, time-series comparisons — were bringing PostgreSQL to its knees. Queries scanning millions of records timing out at 30 seconds.
+Our dashboard analytics — trending charts, revenue breakdowns, time-series comparisons — were bringing PostgreSQL to its knees. Queries scanning millions of records timing out at 30 seconds. Not slow — literally timing out.
 
-You can see it in our current response times:
+We migrated the analytics layer to [Google BigQuery](https://cloud.google.com/bigquery). Same queries that timed out in PostgreSQL now run in under 2 seconds. But **not everything belongs in BigQuery** — we initially moved too aggressively and actually reverted some queries back when the added complexity wasn't justified. Our rule of thumb: if a query scans hundreds of thousands of rows or involves complex time-series aggregations, BigQuery. Everything else stays in PostgreSQL.
+
+Here's where things stand now after the migration:
 
 <div class="chart-container">
-    <div class="chart-title">Mean Response Time</div>
+    <div class="chart-title">Mean Response Time (current)</div>
     <div class="chart-row">
         <span class="chart-row-label">Webhooks</span>
         <div class="chart-bar-track">
@@ -130,9 +132,7 @@ You can see it in our current response times:
     </div>
 </div>
 
-Our API endpoints (which include heavy analytics queries) average **742ms** — down from pure timeouts a year ago. We migrated the analytics layer to [Google BigQuery](https://cloud.google.com/bigquery). Same queries that timed out in PostgreSQL now run in under 2 seconds.
-
-But **not everything belongs in BigQuery**. We initially moved too aggressively and actually reverted some queries back to PostgreSQL when the added complexity wasn't justified. Our rule of thumb: if a query scans hundreds of thousands of rows or involves complex time-series aggregations, BigQuery. Everything else stays in PostgreSQL.
+The API averages **742ms** now — that includes heavy analytics queries that used to time out entirely. Last year the API namespace averaged 443ms, but the analytics endpoints weren't even in the picture because they were failing. Going from "doesn't work" to 742ms is the real win, even if the number looks high.
 
 ## 6. Database Views for Complex Reports
 
