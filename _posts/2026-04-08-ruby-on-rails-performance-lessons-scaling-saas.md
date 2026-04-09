@@ -114,31 +114,38 @@ We migrated the analytics layer to [Google BigQuery](https://cloud.google.com/bi
 Here's where things stand now after the migration:
 
 <div class="chart-container">
-    <div class="chart-title">Mean Response Time (current)</div>
+    <div class="chart-title">Mean Response Time (30-day average)</div>
     <div class="chart-row">
         <span class="chart-row-label">Webhooks</span>
         <div class="chart-bar-track">
-            <div class="chart-bar-fill" style="width: 3.1%"></div>
+            <div class="chart-bar-fill" style="width: 2.9%"></div>
         </div>
-        <span class="chart-row-value">23ms</span>
+        <span class="chart-row-value">36ms</span>
+    </div>
+    <div class="chart-row">
+        <span class="chart-row-label">Dashboard</span>
+        <div class="chart-bar-track">
+            <div class="chart-bar-fill" style="width: 7.1%"></div>
+        </div>
+        <span class="chart-row-value">90ms</span>
     </div>
     <div class="chart-row">
         <span class="chart-row-label">Background</span>
         <div class="chart-bar-track">
-            <div class="chart-bar-fill" style="width: 76%"></div>
+            <div class="chart-bar-fill" style="width: 42%"></div>
         </div>
-        <span class="chart-row-value">568ms</span>
+        <span class="chart-row-value">531ms</span>
     </div>
     <div class="chart-row">
         <span class="chart-row-label">API</span>
         <div class="chart-bar-track">
             <div class="chart-bar-fill" style="width: 100%"></div>
         </div>
-        <span class="chart-row-value">742ms</span>
+        <span class="chart-row-value">1,263ms</span>
     </div>
 </div>
 
-The API averages **742ms** — that includes the heavy analytics queries that used to time out entirely. Going from "doesn't work" to 742ms is the real improvement.
+The API averages **1.2s** — that's the namespace with the heavy analytics queries that used to time out entirely. Going from "doesn't work" to 1.2s is the real improvement. The admin dashboard sits at **90ms**.
 
 ## 6. Database Views for Complex Reports
 
