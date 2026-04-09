@@ -123,13 +123,6 @@ Here's where things stand now after the migration:
         <span class="chart-row-value">85ms</span>
     </div>
     <div class="chart-row">
-        <span class="chart-row-label">Dashboard</span>
-        <div class="chart-bar-track">
-            <div class="chart-bar-fill" style="width: 4.9%"></div>
-        </div>
-        <span class="chart-row-value">169ms</span>
-    </div>
-    <div class="chart-row">
         <span class="chart-row-label">Background</span>
         <div class="chart-bar-track">
             <div class="chart-bar-fill" style="width: 57%"></div>
@@ -145,7 +138,7 @@ Here's where things stand now after the migration:
     </div>
 </div>
 
-95% of API requests complete under **3.4s** — these are the heavy analytics queries that used to time out at 30s. The admin dashboard stays under **169ms** at P95.
+95% of API requests complete under **3.4s** — these are the heavy analytics queries that used to time out at 30s.
 
 ## 6. Database Views for Complex Reports
 
