@@ -87,8 +87,6 @@ With over 100K scheduled jobs in queue at any given time, Sidekiq tuning isn't o
 
 **Consolidate related workers.** We had separate workers for archiving promoters, referrals, and commissions. Consolidating them into a single job with SQL `FILTER` aggregation cut database round-trips and was far easier to reason about.
 
-**Restart workers after large batches.** Ruby's GC doesn't always reclaim memory well after processing huge datasets. We restart workers after large batches to keep memory predictable.
-
 ```yaml
 # sidekiq.yml — separate concerns
 :queues:
