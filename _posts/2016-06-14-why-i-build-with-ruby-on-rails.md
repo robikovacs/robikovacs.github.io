@@ -6,7 +6,7 @@ date: 2016-06-14
 keywords: "ruby on rails, rails framework, ruby developer, web development 2016, learning rails, first developer job"
 ---
 
-Just started at [Wolfpack Digital](https://wolfpack-digital.com) as a Ruby developer. First real job. Figured I'd write down why Rails while it's still fresh.
+Just started at [Wolfpack Digital](https://wolfpack-digital.com) as a Ruby developer. I've been doing Java and Angular for the past two years, so this is a big switch. Figured I'd write down why Rails while it's still fresh.
 
 ![Dev stickers](/assets/images/why-rails--dev-stickers.webp)
 
@@ -16,4 +16,4 @@ Two things hooked me. Convention over configuration — Rails decides where file
 
 "But does it scale?" — yes. Shopify runs on Rails. GitHub ran on it for years. Basecamp still does. When things are slow it's usually a query problem, not a Rails problem.
 
-Not for everything — mobile apps, heavy computation, static sites, use something else. But for web apps and APIs, which is most of what we build here, nothing gets you moving this fast. Still early in my career, lots to learn. Glad I picked Rails.
+Not for everything — mobile apps, heavy computation, static sites, use something else. But for web apps and APIs, which is most of what we build here, nothing gets you moving this fast. After two years of Java, Ruby feels like a different world. Glad I made the switch.
