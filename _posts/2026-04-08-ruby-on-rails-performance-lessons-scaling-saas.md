@@ -132,7 +132,7 @@ Here's where things stand now after the migration:
     </div>
 </div>
 
-The API averages **742ms** — that includes the heavy analytics queries that used to time out entirely. Going from "doesn't work" to 742ms is the real improvement, even if the number doesn't look fast on paper.
+The API averages **742ms** — that includes the heavy analytics queries that used to time out entirely. Going from "doesn't work" to 742ms is the real improvement.
 
 ## 6. Database Views for Complex Reports
 
