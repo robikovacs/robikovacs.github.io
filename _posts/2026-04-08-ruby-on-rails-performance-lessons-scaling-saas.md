@@ -132,7 +132,7 @@ Here's where things stand now after the migration:
     </div>
 </div>
 
-The API averages **742ms** now — that includes heavy analytics queries that used to time out entirely. Last year the API namespace averaged 443ms, but the analytics endpoints weren't even in the picture because they were failing. Going from "doesn't work" to 742ms is the real win, even if the number looks high.
+The API averages **742ms** — that includes the heavy analytics queries that used to time out entirely. Going from "doesn't work" to 742ms is the real improvement, even if the number doesn't look fast on paper.
 
 ## 6. Database Views for Complex Reports
 
