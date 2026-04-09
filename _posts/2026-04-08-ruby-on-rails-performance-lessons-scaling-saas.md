@@ -149,7 +149,7 @@ Here's where things stand now after the migration:
 
 ## 6. Database Views for Complex Reports
 
-We use the [Scenic](https://github.com/scenic-views/scenic) gem to create database views for reporting queries that would otherwise require joining five or six tables every time. The view encapsulates the join logic, you update it in one place, and combined with proper indexes on the underlying tables you get fast, readable reporting without duplicating query logic across the codebase.
+We started with the [Scenic](https://github.com/scenic-views/scenic) gem to create PostgreSQL views for reporting queries that would otherwise require joining five or six tables every time. That worked until it didn't — the views got too complex and too slow as the data grew. We ended up moving the heavy ones to BigQuery, where the same join logic runs over millions of rows without breaking a sweat. The simpler views still live in PostgreSQL where they belong.
 
 ## 7. Batch Size Is a Tuning Parameter
 
