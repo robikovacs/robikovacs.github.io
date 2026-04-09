@@ -65,7 +65,7 @@ CounterCulture.configure do |config|
 end
 ```
 
-Our web dashboard went from **111ms** mean response time last year to **69ms** today — a 38% improvement just from smarter counter caching.
+Our web dashboard went from **111ms** mean response time last year to **66ms** today — a 40% improvement.
 
 ## 2. N+1 Queries: Preloading Too Much Is as Bad as Too Little
 
