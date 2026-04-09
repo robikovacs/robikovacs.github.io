@@ -14,7 +14,7 @@ Here's what a typical week looks like in production:
 
 <div class="metric-cards">
     <div class="metric-card">
-        <div class="metric-value">37.5M</div>
+        <div class="metric-value">35.5M</div>
         <div class="metric-label">Requests / week</div>
     </div>
     <div class="metric-card">
@@ -31,7 +31,7 @@ Here's what a typical week looks like in production:
     </div>
 </div>
 
-That's an 80% increase in throughput from last year — while simultaneously making things faster. We process payment webhooks from Stripe, Chargebee, Braintree, and Paddle — about 1.47 million per day. Each one needs to be fast and reliable because it directly affects revenue attribution for our customers.
+That's more than double the throughput from last year (15.7M → 35.5M) — while simultaneously making things faster. We process payment webhooks from Stripe, Chargebee, Braintree, and Paddle — about 1.47 million per day. Each one needs to be fast and reliable because it directly affects revenue attribution for our customers.
 
 Here are seven lessons we learned the hard way.
 
