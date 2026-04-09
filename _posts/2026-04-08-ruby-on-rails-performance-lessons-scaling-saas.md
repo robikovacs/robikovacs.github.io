@@ -114,38 +114,38 @@ We migrated the analytics layer to [Google BigQuery](https://cloud.google.com/bi
 Here's where things stand now after the migration:
 
 <div class="chart-container">
-    <div class="chart-title">Mean Response Time (30-day average)</div>
+    <div class="chart-title">P95 Response Time (30 days)</div>
     <div class="chart-row">
         <span class="chart-row-label">Webhooks</span>
         <div class="chart-bar-track">
-            <div class="chart-bar-fill" style="width: 2.9%"></div>
+            <div class="chart-bar-fill" style="width: 2.5%"></div>
         </div>
-        <span class="chart-row-value">36ms</span>
+        <span class="chart-row-value">85ms</span>
     </div>
     <div class="chart-row">
         <span class="chart-row-label">Dashboard</span>
         <div class="chart-bar-track">
-            <div class="chart-bar-fill" style="width: 7.1%"></div>
+            <div class="chart-bar-fill" style="width: 4.9%"></div>
         </div>
-        <span class="chart-row-value">90ms</span>
+        <span class="chart-row-value">169ms</span>
     </div>
     <div class="chart-row">
         <span class="chart-row-label">Background</span>
         <div class="chart-bar-track">
-            <div class="chart-bar-fill" style="width: 42%"></div>
+            <div class="chart-bar-fill" style="width: 57%"></div>
         </div>
-        <span class="chart-row-value">531ms</span>
+        <span class="chart-row-value">1,969ms</span>
     </div>
     <div class="chart-row">
         <span class="chart-row-label">API</span>
         <div class="chart-bar-track">
             <div class="chart-bar-fill" style="width: 100%"></div>
         </div>
-        <span class="chart-row-value">1,263ms</span>
+        <span class="chart-row-value">3,426ms</span>
     </div>
 </div>
 
-The API averages **1.2s** — that's the namespace with the heavy analytics queries that used to time out entirely. Going from "doesn't work" to 1.2s is the real improvement. The admin dashboard sits at **90ms**.
+95% of API requests complete under **3.4s** — these are the heavy analytics queries that used to time out at 30s. The admin dashboard stays under **169ms** at P95.
 
 ## 6. Database Views for Complex Reports
 
