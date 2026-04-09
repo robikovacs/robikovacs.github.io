@@ -18,6 +18,8 @@ This changes how you think about error handling. HTTP timeouts mean something di
 
 The interesting edge case: what happens when someone is inside and their card declines? You can't lock someone inside a room because their card declined. The physical world doesn't care about your payment flow.
 
+![ROOM booking app — find a Focus Room on the map, reserve it, scan to start](/assets/images/pro-rod_cs1.jpg)
+
 ## The data pipeline nobody warned me about
 
 Every ROOM unit has a Particle IoT device inside it. Tracks occupancy — when someone enters, when they leave, signal strength, device health. That data flows through Google Pub/Sub into BigQuery, and our Rails API pulls it back out for analytics dashboards.
@@ -25,6 +27,8 @@ Every ROOM unit has a Particle IoT device inside it. Tracks occupancy — when s
 Sounds simple: device sends event, Pub/Sub queues it, BigQuery stores it, Rails reads it back. In practice: devices drop offline, send duplicate events, have clock drift. A unit in Tokyo and a unit in New York need their sessions in the right timezone. Devices sometimes report "occupied" when nobody's there (the sensor picked up movement outside the booth). You end up writing reconciliation logic you never planned for.
 
 The portal shows office managers how their spaces are actually used. Turns out most companies have no idea. The data is usually surprising — the big meeting room that seats 12 gets used by 2 people for calls, and the phone booths are at 90% utilization.
+
+![The Sense analytics dashboard — utilization data from IoT sensors across office spaces](/assets/images/pro-sense_cs1.png)
 
 ## Two stacks, same door
 
