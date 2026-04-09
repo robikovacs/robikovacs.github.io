@@ -1,0 +1,74 @@
+name: Sync posts to dev.to
+
+on:
+  workflow_run:
+    workflows: ["Deploy Jekyll site to Pages"]
+    types: [completed]
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sync posts to dev.to
+        env:
+          DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
+        run: |
+          for post in _posts/*.md; do
+            # Parse front matter
+            title=$(sed -n 's/^title: *"\(.*\)"/\1/p' "$post" | head -1)
+            description=$(sed -n 's/^description: *"\(.*\)"/\1/p' "$post" | head -1)
+            date=$(sed -n 's/^date: *\(.*\)/\1/p' "$post" | head -1)
+            keywords=$(sed -n 's/^keywords: *"\(.*\)"/\1/p' "$post" | head -1)
+
+            # Skip if no title
+            [ -z "$title" ] && continue
+
+            # Build slug from filename
+            slug=$(basename "$post" .md | sed 's/^[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}-//')
+            canonical="https://robikovacs.com/blog/${slug}/"
+
+            # Extract body (everything after second ---)
+            body=$(awk '/^---$/{c++;next}c>=2' "$post")
+
+            # Convert image paths to absolute URLs
+            body=$(echo "$body" | sed 's|(/assets/|(https://robikovacs.com/assets/|g')
+            body=$(echo "$body" | sed 's|src="/assets/|src="https://robikovacs.com/assets/|g')
+
+            # Take first 4 keywords as tags (dev.to limit)
+            tags=$(echo "$keywords" | tr ',' '\n' | head -4 | sed 's/^ *//;s/ *$//' | tr ' ' '-' | tr '\n' ',' | sed 's/,$//')
+
+            # Check if article exists on dev.to
+            existing=$(curl -s -H "api-key: ${DEVTO_API_KEY}" \
+              "https://dev.to/api/articles/me/all?per_page=100" | \
+              jq -r ".[] | select(.canonical_url == \"${canonical}\") | .id")
+
+            # Build JSON payload
+            payload=$(jq -n \
+              --arg title "$title" \
+              --arg body "$body" \
+              --arg canonical "$canonical" \
+              --arg description "$description" \
+              --arg tags "$tags" \
+              '{article: {title: $title, body_markdown: $body, canonical_url: $canonical, description: $description, tags: ($tags | split(",")), published: true}}')
+
+            if [ -n "$existing" ]; then
+              echo "Updating: $title (id: $existing)"
+              curl -s -X PUT "https://dev.to/api/articles/${existing}" \
+                -H "Content-Type: application/json" \
+                -H "api-key: ${DEVTO_API_KEY}" \
+                -d "$payload" | jq -r '.url // .error'
+            else
+              echo "Creating: $title"
+              curl -s -X POST "https://dev.to/api/articles" \
+                -H "Content-Type: application/json" \
+                -H "api-key: ${DEVTO_API_KEY}" \
+                -d "$payload" | jq -r '.url // .error'
+            fi
+
+            sleep 2
+          done
