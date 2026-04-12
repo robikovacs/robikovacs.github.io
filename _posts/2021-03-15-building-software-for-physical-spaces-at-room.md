@@ -4,6 +4,7 @@ title: "What Happens When Your API Has to Open a Door"
 description: "Building software at ROOM that controls physical locks, tracks IoT sensors, and manages office spaces — the weird problems you don't get in pure SaaS."
 date: 2021-03-15
 keywords: "IoT development, smart locks API, room booking platform, particle IoT, rails node typescript, react native, physical space software"
+tags: webdev, rails, typescript, reactnative
 ---
 
 I've been at [ROOM](https://room.com) for a while now, working across their platform. ROOM makes phone booths and meeting rooms for offices, and the software side is about making those physical spaces bookable, trackable, and manageable. We run a Rails API for the B2B portal, a Node/TypeScript API for the consumer booking app, and a React Native mobile app.

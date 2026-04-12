@@ -4,6 +4,7 @@ title: "What 2018 Taught Me About Building Software"
 description: "Lessons from a year of shipping products, growing as a developer, and figuring out that writing code is only part of the job."
 date: 2018-12-25
 keywords: "software engineering lessons, developer growth, ruby developer 2018, shipping products, lessons learned programming"
+tags: career, programming, webdev, learning
 ---
 
 End of the year, time to look back. The team doubled, the projects got bigger, and I spent way more time not writing code than I expected.

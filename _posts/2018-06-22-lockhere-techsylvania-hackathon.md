@@ -4,6 +4,7 @@ title: "We Built a Bike Security App in 24 Hours"
 description: "How Emil and I built LockHere at the Techsylvania hackathon — a mobile app that alerts you when someone touches your bike."
 date: 2018-06-22
 keywords: "hackathon, techsylvania, lockhere, bike security app, rails hackathon, connected devices, cluj-napoca"
+tags: showdev, ruby, mobile, webdev
 ---
 
 Emil and I entered the Techsylvania hackathon last week. 24 hours, connected devices theme. We built LockHere — detects motion around your bike, sends you a real-time alert with its location. Simple idea. Bikes get stolen in Cluj all the time.

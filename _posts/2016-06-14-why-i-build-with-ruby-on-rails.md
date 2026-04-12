@@ -4,6 +4,7 @@ title: "Why I Keep Choosing Ruby on Rails"
 description: "I just started my first job as a Rails developer. Here's why I picked it and what I think about the framework so far."
 date: 2016-06-14
 keywords: "ruby on rails, rails framework, ruby developer, web development 2016, learning rails, first developer job"
+tags: ruby, rails, beginners, webdev
 ---
 
 Just started at [Wolfpack Digital](https://wolfpack-digital.com) as a Ruby developer. I've been doing Java and Angular for the past two years, so this is a big switch. Figured I'd write down why Rails while it's still fresh.
