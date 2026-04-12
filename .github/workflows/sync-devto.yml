@@ -52,12 +52,13 @@ jobs:
             # Check if article exists on dev.to
             existing=$(echo "$articles" | jq -r ".[] | select(.canonical_url == \"${canonical}\") | .id")
 
-            # Skip update if content hasn't changed
+            # Skip update if content and tags haven't changed
             if [ -n "$existing" ]; then
               local_hash=$(echo "$body" | md5sum | cut -d' ' -f1)
               remote_body=$(echo "$articles" | jq -r ".[] | select(.id == ${existing}) | .body_markdown")
               remote_hash=$(echo "$remote_body" | md5sum | cut -d' ' -f1)
-              if [ "$local_hash" = "$remote_hash" ]; then
+              remote_tags=$(echo "$articles" | jq -r ".[] | select(.id == ${existing}) | .tag_list | join(\", \")")
+              if [ "$local_hash" = "$remote_hash" ] && [ "$tags" = "$remote_tags" ]; then
                 echo "Skipping (unchanged): $title"
                 continue
               fi
