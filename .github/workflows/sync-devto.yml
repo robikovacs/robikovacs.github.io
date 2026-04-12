@@ -46,8 +46,8 @@ jobs:
             # Strip any remaining HTML lines
             body=$(echo "$body" | grep -v '^ *<')
 
-            # Take first 4 keywords as tags (dev.to: lowercase, no hyphens/spaces)
-            tags=$(echo "$keywords" | tr ',' '\n' | head -4 | sed 's/^ *//;s/ *$//;s/[- ]//g' | tr '[:upper:]' '[:lower:]' | tr '\n' ',' | sed 's/,$//')
+            # Use tags from front matter
+            tags=$(sed -n 's/^tags: *\(.*\)/\1/p' "$post" | head -1)
 
             # Check if article exists on dev.to
             existing=$(echo "$articles" | jq -r ".[] | select(.canonical_url == \"${canonical}\") | .id")
