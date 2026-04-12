@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Ruby on Rails Performance: 7 Lessons from Scaling FirstPromoter"
-description: "Real-world Rails performance lessons from scaling an affiliate platform handling 37M+ requests per week and 10M payment webhooks. Counter caching, N+1 fixes, Redis, Sidekiq, BigQuery, and more."
+description: "Real-world Rails performance lessons from scaling an affiliate platform handling 35M+ requests per week and 10M payment webhooks. Counter caching, N+1 fixes, Redis, Sidekiq, BigQuery, and more."
 date: 2026-04-08
 keywords: "ruby on rails performance, rails optimization, scaling rails, saas performance, counter cache rails, sidekiq optimization, bigquery rails, n+1 queries rails, stripe webhooks rails"
 tags: ruby, rails, performance, postgres
