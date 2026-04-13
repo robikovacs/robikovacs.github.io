@@ -66,7 +66,7 @@ One nice bonus: [Wispr Flow](https://ref.wisprflow.ai/robert-kovacs) keeps a his
 
 The interesting part isn't the tools. It's noticing how much of coding is describing intent — and how much better that works out loud, with a controller in your hand, than hunched over a keyboard.
 
-## Setting up FirstPromoter with Claude Code Desktop previews
+## Setting up your dev environment with Claude Code previews
 
 At [FirstPromoter](https://firstpromoter.com/?fpr=robert), our platform spans four distinct frontends — an Admin Dashboard, an Affiliate Portal, a Support Dashboard, and our public Docs site — all living as git submodules inside a single monorepo alongside our Rails API and dbt analytics project. Wiring this up to Claude Code's new desktop preview feature took a single file, `.claude/launch.json`:
 
@@ -107,5 +107,7 @@ At [FirstPromoter](https://firstpromoter.com/?fpr=robert), our platform spans fo
 ```
 
 Each frontend is declared as a preview configuration that shells out to `docker-compose up`, mapped to the port its service is exposed on. Because every preview shares the same Docker Compose stack, launching any one of them brings up the entire backend — Rails API, Postgres, Redis, Sidekiq, Elasticsearch — so Claude can click through the Admin UI, hit a real API, and watch the console for errors without me juggling a dozen terminals.
+
+Once it's wired up, the workflow gets even more hands-free: I just say *"open the Admin preview"* (or Affiliate, Support, Docs) and Claude starts the right one and opens it in the side panel. No terminal, no remembering ports.
 
 The result: Claude can preview a feature, review the diff inline, and push the PR through CI to merge — all without leaving the desktop app, and without writing a single bespoke dev script on top of the Docker setup [FirstPromoter](https://firstpromoter.com/?fpr=robert) already had.
