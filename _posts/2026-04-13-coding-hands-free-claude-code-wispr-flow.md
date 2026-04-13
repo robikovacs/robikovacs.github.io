@@ -24,7 +24,9 @@ That's it.
 
 ## Why the controller?
 
-Voice input alone doesn't work. The moment Claude Code asks "do you want me to run this command?" or "apply these edits?", you need to press something. Saying "yes" into [Wispr](https://ref.wisprflow.ai/robert-kovacs) just types the word "yes" into the chat box — not what you want.
+Voice input alone doesn't work. Claude Code constantly hands you things you have to press a key for — and it's not just "approve" prompts. Sometimes it's a list of options to pick from, sometimes you want to cancel what it's doing mid-stream, sometimes you need to scroll through a diff or jump between files. Saying "yes" into [Wispr](https://ref.wisprflow.ai/robert-kovacs) just types the word "yes" into the chat box — not what you want.
+
+You need real keys: Enter to accept, Esc to cancel, arrows to move through options, Shift+Tab to step backward. A keyboard does this fine — but then you're back at the keyboard.
 
 So I bought a tiny gamepad, put it in keyboard mode, and mapped its buttons to the exact keys Claude Code Desktop listens for. Accept, reject, navigate, escape. Done.
 
@@ -53,7 +55,13 @@ Zero keystrokes. The feature is in the preview before I've finished my coffee.
 
 ## Why I actually do this
 
-Thought it would be a novelty. It's not. Talking forces me to explain what I want — intent, constraints, edge cases — instead of jumping into code. Claude gets a better brief, the first attempt is closer to right. My "thinking out loud" became the spec.
+Thought it would be a novelty. It's not. A few real reasons it stuck:
+
+**Productivity.** Talking forces me to explain what I want — intent, constraints, edge cases — instead of jumping into code. Claude gets a better brief, the first attempt is closer to right. My "thinking out loud" became the spec.
+
+**Less time hunched over the keyboard.** Eight hours a day of typing catches up with you. Offloading most of the keypresses to voice + a thumb on a controller means my wrists and shoulders get an actual break, even on long days.
+
+**It feels like Iron Man.** Honestly. Talking to your environment, pressing one button to act, watching things build themselves in front of you — it's a bit absurd, a bit magical, and it makes me want to keep working instead of wanting a break.
 
 One nice bonus: [Wispr Flow](https://ref.wisprflow.ai/robert-kovacs) keeps a history of everything you dictate. If Claude eats your prompt, or you want to reuse a description, it's all there in the transcript panel.
 
