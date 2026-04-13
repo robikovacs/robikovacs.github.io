@@ -26,7 +26,9 @@ That's it.
 
 Voice input alone doesn't work. The moment Claude Code asks "do you want me to run this command?" or "apply these edits?", you need to press something. Saying "yes" into [Wispr](https://ref.wisprflow.ai/robert-kovacs) just types the word "yes" into the chat box — not what you want.
 
-So I bought a tiny gamepad and mapped its buttons to the exact keys Claude Code Desktop listens for. Accept, reject, navigate, escape. Done.
+So I bought a tiny gamepad, put it in keyboard mode, and mapped its buttons to the exact keys Claude Code Desktop listens for. Accept, reject, navigate, escape. Done.
+
+Quick note: the 8BitDo desktop app didn't work for me (couldn't see the controller), but the [iOS app](https://apps.apple.com/us/app/8bitdo-ultimate-software/id1532713768) did — I mapped everything from my phone.
 
 ![8BitDo Ultimate Software button mapping](/assets/images/hands-free-claude-code--controller-mapping.webp)
 *Button mapping in 8BitDo's Ultimate Software. Enter, Esc, arrows, Shift+Tab — the keys Claude Code actually cares about. The up/down arrows look swapped because I hold the controller rotated (see the GIF below), so the D-pad ends up pointing the "right" way from my grip.*
