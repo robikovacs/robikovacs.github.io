@@ -1,0 +1,31 @@
+---
+layout: null
+permalink: /rss.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.title | xml_escape }}</title>
+    <link>{{ site.url }}/</link>
+    <description>{{ site.description | xml_escape }}</description>
+    <language>en-us</language>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <atom:link href="{{ '/rss.xml' | absolute_url }}" rel="self" type="application/rss+xml" />
+    {% for post in site.posts %}
+      {% assign absolute_content = post.content | replace: 'src="/', 'src="__ABSURL__/' | replace: 'href="/', 'href="__ABSURL__/' | replace: '__ABSURL__', site.url %}
+    <item>
+      <title>{{ post.title | xml_escape }}</title>
+      <link>{{ post.url | absolute_url }}</link>
+      <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
+      <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+      <dc:creator>{{ site.author.name | default: site.author | xml_escape }}</dc:creator>
+      {% if post.description %}<description>{{ post.description | xml_escape }}</description>{% endif %}
+      {% if post.tags %}{% assign tags = post.tags | split: "," %}{% for tag in tags %}<category>{{ tag | strip | xml_escape }}</category>{% endfor %}{% endif %}
+      <content:encoded><![CDATA[{{ absolute_content }}]]></content:encoded>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

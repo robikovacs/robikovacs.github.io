@@ -31,6 +31,10 @@
         <!-- AI / LLM discoverability -->
         <link rel="help" type="text/plain" href="{{ '/llms.txt' | absolute_url }}" />
 
+        <!-- Feed auto-discovery -->
+        <link rel="alternate" type="application/atom+xml" title="{{ site.title }} (Atom)" href="{{ '/feed.xml' | absolute_url }}" />
+        <link rel="alternate" type="application/rss+xml" title="{{ site.title }} (RSS)" href="{{ '/rss.xml' | absolute_url }}" />
+
         <!-- Mastodon verification -->
         <link rel="me" href="https://mastodon.social/@robikovacs" />
 
