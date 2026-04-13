@@ -33,12 +33,12 @@ So I bought a tiny gamepad and mapped its buttons to the exact keys Claude Code 
 
 ## How it actually works
 
-Hold <code>Ctrl+Cmd+&#96;</code>, say what I want, let go. Wispr transcribes it straight into the Claude Code chat box. (Wispr defaults to `fn`, but `fn` can't be mapped to a controller button, so I use the chord and bind it to the controller instead.)
+Hold <code>Ctrl+Cmd+&#96;</code>, say what I want, let go. Wispr transcribes it straight into the Claude Code chat box. (Wispr defaults to `fn`, but `fn` can't be mapped to a controller button, so I use the key combo and bind it to the controller instead.)
 
 ![Wispr Flow shortcuts settings](/assets/images/hands-free-claude-code--wispr-shortcuts.webp)
-*Two push-to-talk shortcuts — I use the <code>Ctrl+Cmd+&#96;</code> chord because it's mappable to the controller.*
+*Two push-to-talk shortcuts — I use the <code>Ctrl+Cmd+&#96;</code> combo because it's mappable to the controller.*
 
-Claude Code goes off and does the thing. Reads files, edits them, runs the dev server, screenshots the preview. When it asks for approval, I hit the accept button on the controller. When I want to redirect it, I hold the chord and talk again.
+Claude Code goes off and does the thing. Reads files, edits them, runs the dev server, screenshots the preview. When it asks for approval, I hit the accept button on the controller. When I want to redirect it, I hold the combo and talk again.
 
 ![Claude Code Desktop running a preview](/assets/images/hands-free-claude-code--claude-code-desktop.webp)
 *Claude Code Desktop. Chat on the left, live preview on the right. Controller does the approvals.*
@@ -57,7 +57,7 @@ One nice bonus: [Wispr Flow](https://ref.wisprflow.ai/robert-kovacs) keeps a his
 
 ## The setup in 30 seconds
 
-1. Install [Wispr Flow](https://ref.wisprflow.ai/robert-kovacs) (free tier works fine). Set push-to-talk to a chord you can map to a button (I use <code>Ctrl+Cmd+&#96;</code>).
+1. Install [Wispr Flow](https://ref.wisprflow.ai/robert-kovacs) (free tier works fine). Set push-to-talk to a key combo you can map to a button (I use <code>Ctrl+Cmd+&#96;</code>).
 2. Get an [8BitDo Micro](https://www.8bitdo.com/micro/) (or any programmable bluetooth controller). Map the buttons you need — Enter for accept, Esc for reject, arrows for navigation, plus your Wispr shortcut.
 3. Open Claude Code Desktop. Focus the chat box.
 4. Talk. Press the button when it asks. Repeat.
