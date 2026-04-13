@@ -18,3 +18,7 @@ Thumbs.db
 *.swp
 *.swo
 .ruby-lsp
+
+# Claude Code local
+.claude/settings.local.json
+.playwright-mcp/
