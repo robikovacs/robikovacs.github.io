@@ -1,4 +1,6 @@
-# Robert Kovacs
+---
+---
+# {{ site.author.name }}
 
 > CTO at FirstPromoter. Ruby on Rails, performance, and scaling.
 
@@ -14,16 +16,14 @@ Ruby on Rails performance at scale, PostgreSQL optimization, Redis caching, Side
 
 ## Links
 
-- Website: https://robikovacs.com
-- Blog: https://robikovacs.com/blog/
+- Website: {{ site.url }}
+- Blog: {{ '/blog/' | absolute_url }}
 - FirstPromoter: https://firstpromoter.com/?fpr=robert
 - GitHub: https://github.com/robikovacs
 - LinkedIn: https://www.linkedin.com/in/rikovacs/
 
 ## Blog Posts
 
-- [Ruby on Rails Performance: 7 Lessons from Scaling FirstPromoter](https://robikovacs.com/blog/ruby-on-rails-performance-lessons-scaling-saas/)
-- [What Happens When Your API Has to Open a Door](https://robikovacs.com/blog/building-software-for-physical-spaces-at-room/)
-- [What 2018 Taught Me About Building Software](https://robikovacs.com/blog/a-year-of-building-2018-in-review/)
-- [We Built a Bike Security App in 24 Hours](https://robikovacs.com/blog/lockhere-techsylvania-hackathon/)
-- [Why I Keep Choosing Ruby on Rails](https://robikovacs.com/blog/why-i-build-with-ruby-on-rails/)
+{% for post in site.posts -%}
+- [{{ post.title }}]({{ post.url | absolute_url }}) ({{ post.date | date: "%Y-%m-%d" }}){% if post.description %}: {{ post.description }}{% endif %}
+{% endfor %}
