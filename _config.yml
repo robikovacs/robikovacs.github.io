@@ -11,6 +11,10 @@ permalink: /blog/:title/
 
 defaults:
   - scope:
+      path: ""
+    values:
+      image: /assets/images/site-social-preview.png
+  - scope:
       path: "_posts"
       type: "posts"
     values:
